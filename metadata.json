@@ -1,0 +1,6 @@
+{
+  "name": "Flood Damage Space Mapper",
+  "description": "Interactive disaster response platform processing Sentinel satellite imagery to detect floods, map damaged infrastructure, and identify cut-off settlements with AI situation reporting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

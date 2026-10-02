@@ -1,0 +1,6 @@
+{
+  "summary":  "Implementation plan for the Flood Damage Space Mapper disaster response web application.\nIncludes:\n- Architecture diagram and folder structure for frontend, backend-node, and backend-python\n- Full-screen interactive Leaflet map dashboard with CARTO Dark Matter, Humanitarian OSM, and multispectral/radar layers\n- Pre/Post satellite imagery toggle, flood/debris segmentation mask, OSM road network, and cut-off settlements layer\n- Express.js API gateway (/api/fetch-satellite, /api/fetch-osm, /api/analyze, /api/report, /api/history)\n- Python ML microservice (PyTorch Kuro Siwo segmentation pipeline, NetworkX road network connectivity analysis, Gemini bilingual English/Nepali situation report generator)\n- Emergency response dark HUD theme conforming to science/disaster console design rules",
+  "updatedAt":  "2026-10-02T15:14:41.408460373Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}

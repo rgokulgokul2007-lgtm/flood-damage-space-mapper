@@ -1,0 +1,52 @@
+{
+  "entities": {
+    "SituationReport": {
+      "title": "SituationReport",
+      "description": "Disaster response situation report generated from satellite and OpenStreetMap network analysis",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique report identifier" },
+        "incidentName": { "type": "string", "description": "Name of the disaster event or operational zone" },
+        "preEventDate": { "type": "string", "description": "Pre-disaster baseline imagery date" },
+        "postEventDate": { "type": "string", "description": "Post-disaster observation date" },
+        "bbox": {
+          "type": "object",
+          "description": "Geographical bounding box of the analysis area"
+        },
+        "floodAreaSqKm": { "type": "number", "description": "Estimated flooded surface area in square km" },
+        "debrisAreaSqKm": { "type": "number", "description": "Estimated debris/landslide surface area in square km" },
+        "damagedRoadKm": { "type": "number", "description": "Total kilometers of severed or damaged roads" },
+        "severedBridgesCount": { "type": "number", "description": "Number of destroyed or submerged bridges" },
+        "isolatedSettlementsCount": { "type": "number", "description": "Number of human settlements with 0 road connectivity" },
+        "trappedPopulationEstimate": { "type": "number", "description": "Total estimated trapped population" },
+        "englishReport": { "type": "string", "description": "UN OCHA standard English situation report" },
+        "nepaliReport": { "type": "string", "description": "NDRRMA standard Nepali situation report in Devanagari" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Timestamp of report generation" }
+      },
+      "required": ["id", "incidentName", "preEventDate", "postEventDate", "damagedRoadKm", "isolatedSettlementsCount", "englishReport", "nepaliReport", "createdAt"]
+    },
+    "SearchAuditLog": {
+      "title": "SearchAuditLog",
+      "description": "Log of coordinate queries and satellite analysis runs for historical auditing",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Audit record identifier" },
+        "bbox": { "type": "object", "description": "Queried bounding box" },
+        "locationName": { "type": "string", "description": "Human readable name or coordinate string" },
+        "timestamp": { "type": "string", "format": "date-time", "description": "Query timestamp" },
+        "satelliteSensors": { "type": "array", "description": "Sensors used e.g. Sentinel-1 SAR, Sentinel-2 MSI" }
+      },
+      "required": ["id", "bbox", "locationName", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/situation_reports/{reportId}": {
+      "schema": "SituationReport",
+      "description": "Persisted emergency situation reports for disaster operations"
+    },
+    "/search_audits/{auditId}": {
+      "schema": "SearchAuditLog",
+      "description": "Historical log of spatial bounding box queries and sensor fetches"
+    }
+  }
+}

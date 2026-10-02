@@ -1,0 +1,15 @@
+# Flood Damage Space Mapper - Python ML & AI Microservice Dependencies
+torch>=2.2.0
+torchvision>=0.17.0
+networkx>=3.2.1
+geopandas>=0.14.3
+shapely>=2.0.3
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+google-genai>=0.1.1
+pydantic>=2.6.4
+numpy>=1.26.4
+rasterio>=1.3.9
+scipy>=1.12.0
+python-dotenv>=1.0.1
+requests>=2.31.0
